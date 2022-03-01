@@ -29,6 +29,12 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
 
+    <style>
+        .footer .footer_top .footer_widget ul li a:hover {
+            background-color: {{$front_config['textcolor']}};
+        }
+    </style>
+
 </head>
 <body>
     <!-- header-start -->
@@ -41,8 +47,9 @@
                             <div class="logo">
                                 <a href="{{route('home')}}">
                                     <div style="text-align: center; font-family: 'Orbitron', sans-serif; color: #FFF; font-size: 40px; flex-direction: column;" class="d-flex">
-                                        <strong>P</strong>
-                                        <span style="text-align: center; font-family: 'Orbitron', sans-serif; color: #FFF; font-size: 20px;">Pieno</span>
+                                        <img src="{{ asset('media/images').'/'.$front_config['logo']}}" style="width:100px;">
+                                        {{-- <strong>P</strong>
+                                        <span style="text-align: center; font-family: 'Orbitron', sans-serif; color: #FFF; font-size: 20px;">Pieno</span> --}}
                                     </div>
                                 </a>
                             </div>
@@ -58,13 +65,13 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                        {{-- <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="book_btn d-none d-lg-block">
                                     <a  href="{{route('login')}}" target="_blanck">Login</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
@@ -86,30 +93,55 @@
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
                             <div class="footer_logo">
-                                <a href="/">
-                                    <img src="{{asset('assets/img/logo.png')}}" alt="">
+                                <a href="{{route('home')}}">
+                                    <div style="text-align: center; font-family: 'Orbitron', sans-serif; color: #FFF; font-size: 40px; flex-direction: column;" class="d-flex">
+                                        <img src="{{ asset('media/images').'/'.$front_config['logo']}}" style="width:100px;">
+                                    </div>
                                 </a>
                             </div>
+                            <h2 style="color:{{$front_config['textcolor']}};">
+                                {{$front_config['title']}}
+                            </h2>
                             <p>
                                 {{$front_config['subtitle']}}
                             </p>
                             <div class="socail_links">
                                 <ul>
+                                    @if($front_config['facebook'])
                                     <li>
-                                        <a href="#">
+                                        <a href="{{$front_config['facebook']}}" target="blank">
                                             <i class="ti-facebook"></i>
                                         </a>
                                     </li>
+                                    @endif
+                                    @if($front_config['twitter'])
                                     <li>
-                                        <a href="#">
+                                        <a href="{{$front_config['twitter']}}" target="blank">
                                             <i class="ti-twitter-alt"></i>
                                         </a>
                                     </li>
+                                    @endif
+                                    @if($front_config['instagram'])
                                     <li>
-                                        <a href="#">
+                                        <a href="{{$front_config['instagram']}}" target="blank">
                                             <i class="fa fa-instagram"></i>
                                         </a>
                                     </li>
+                                    @endif
+                                    @if($front_config['youtube'])
+                                    <li>
+                                        <a href="{{$front_config['youtube']}}" target="blank">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    @endif
+                                    @if($front_config['linkedin'])
+                                    <li>
+                                        <a href="{{$front_config['linkedin']}}" target="blank">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    @endif
                                 </ul>
                             </div>
 
@@ -118,13 +150,13 @@
                     <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                    Services
+                                    {{-- Services --}}
                             </h3>
                             <ul>
-                                <li><a href="#">Team management</a></li>
+                                {{-- <li><a href="#">Team management</a></li>
                                 <li><a href="#">Collaboration</a></li>
                                 <li><a href="#">Todo</a></li>
-                                <li><a href="#">Events</a></li>
+                                <li><a href="#">Events</a></li> --}}
                             </ul>
 
                         </div>
@@ -132,32 +164,38 @@
                     <div class="col-xl-2 col-md-6 col-lg-2">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                    Useful Links
+                                    {{-- Useful Links --}}
                             </h3>
                             <ul>
-                                <li><a href="#">Pricing</a></li>
+                                {{-- <li><a href="#">Pricing</a></li>
                                 <li><a href="#">Features</a></li>
                                 <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Contact</a></li> --}}
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                    Downloads
+                                    @if($front_config['email'] || $front_config['telefone'])
+                                    CONTATOS
+                                    @endif
                             </h3>
                             <ul>
+                                @if($front_config['email'])
                                 <li>
-                                    <a href="#">
-                                        Download from Apple Store
+                                    <a href="mailto={{$front_config['email']}}">
+                                        {{$front_config['email']}}
 
                                     </a>
                                 </li>
+                                @endif
+                                @if($front_config['telefone'])
                                 <li><a href="#">
-                                        Download from Play Store
+                                        {{$front_config['telefone']}}
                                     </a>
                                 </li>
+                                @endif
                                 </ul>
                         </div>
                     </div>

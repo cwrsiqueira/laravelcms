@@ -3,15 +3,15 @@
 @section('title', 'Home')
 
 @section('content')
-    
+
     <!-- slider_area_start -->
     <div class="slider_area">
-        <div class="single_slider  d-flex align-items-center slider_bg_1">
-            <div class="container">
+        <div class="single_slider  d-flex align-items-center slider_bg_1" style="background-image:url('')">
+            <div class="container" style="background-color: rgba(40,167,69,0.3); color:#ddd; padding:50px;">
                 <div class="row align-items-center">
                     <div class="col-xl-7 col-md-6">
                         <div class="slider_text ">
-                            <h3 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s" ><small> Marque uma consulta </small><br>
+                            <h3 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s" ><small></small><br>
                                 {{$front_config['title']}}</h3>
                             <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">{{$front_config['subtitle']}}</p>
                             <div class="video_service_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">
