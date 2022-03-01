@@ -39,7 +39,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <div class="logo">
-                                <a href="/">
+                                <a href="{{route('home')}}">
                                     <div style="text-align: center; font-family: 'Orbitron', sans-serif; color: #FFF; font-size: 40px; flex-direction: column;" class="d-flex">
                                         <strong>P</strong>
                                         <span style="text-align: center; font-family: 'Orbitron', sans-serif; color: #FFF; font-size: 20px;">Pieno</span>
@@ -52,7 +52,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         @foreach ($front_menu as $menuslug => $menutitle)
-                                            <li><a style="color:{{$front_config['textcolor']}};" href="{{$menuslug}}">{{$menutitle}}</a></li>
+                                            <li><a style="color:{{$front_config['textcolor']}};" href="@if($menuslug == '/') {{route('home')}} @else {{$menuslug}} @endif">{{$menutitle}}</a></li>
                                         @endforeach
                                     </ul>
                                 </nav>
@@ -61,7 +61,7 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="book_btn d-none d-lg-block">
-                                    <a  href="/painel" target="_blanck">Login</a>
+                                    <a  href="{{route('login')}}" target="_blanck">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -215,3 +215,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Websy
     <script src="{{asset('assets/js/main.js')}}"></script>
 </body>
 </html>
+
+
+

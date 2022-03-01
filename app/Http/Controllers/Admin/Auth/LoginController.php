@@ -41,12 +41,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function index() 
+    public function index()
     {
         return view('admin.auth.login');
     }
 
-    public function authenticate(Request $request) 
+    public function authenticate(Request $request)
     {
         $data = $request->only(
             [
@@ -58,12 +58,12 @@ class LoginController extends Controller
 
         $remember = $request->input('remember', false);
 
-        if ($validator->fails()) 
+        if ($validator->fails())
         {
             return redirect()->route('login')->withErrors($validator)->withInput();
         }
 
-        if (Auth::attempt($data, $remember)) 
+        if (Auth::attempt($data, $remember))
         {
             return redirect()->route('admin');
         }
