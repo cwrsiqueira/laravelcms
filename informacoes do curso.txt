@@ -1,0 +1,43 @@
+- arquivo .env
+
+alterar nome
+alterar dados BD
+
+- arquivo config/database.php para utf8
+
+alterar charset no mysql
+
+- instalar auth
+- npm install
+- npm run dev
+
+Consultar documentação laravel
+
+- instalar admin lte 
+
+composer require jeroennoten/laravel-adminlte
+php artisan adminlte:install
+
+HOSPEDAR O SITE
+
+- se der problema no simfony na hospedagem
+
+colocar no arquivo composer.json:
+Em:
+"require": {
+    "Depois da última linha",
+    "symfony/translation":"4.3.8"
+}
+
+E dar o comando: composer update
+pra atualizar os arquivos
+
+- Alterar o App/Providers/AppServiceProvider.php
+
+Vou deixar salvo e comentado no referido arquivo.
+Só precisa descomentar quando colocar o site na hospedagem
+
+- Edita o Arquivo .env
+
+verficar no arquivo .env copy 
+    está marcado com asterísco onde deve ser alterado antes de enviar para hospedagem
